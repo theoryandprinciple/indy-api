@@ -1,25 +1,18 @@
 'use strict';
 
-const Dotenv = require('dotenv');
 const Confidence = require('confidence');
 const Toys = require('toys');
-
-// $lab:coverage:off$
-// Pull .env into process.env
-if (process.env.NODE_ENV === 'test') {
-    Dotenv.config({ path: `${__dirname}/.env-test` });
-}
-else {
-    Dotenv.config({ path: `${__dirname}/.env` });
-}
-// $lab:coverage:on$
 
 // Glue manifest as a confidence store
 module.exports = new Confidence.Store({
     server: {
         host: '0.0.0.0',
         // $lab:coverage:off$
-        port: process.env.PORT || 3000,
+        port: {
+            $env: 'PORT',
+            $coerce: 'number',
+            $default: 3000,
+        },
         // $lab:coverage:on$
         routes: {
             cors: {

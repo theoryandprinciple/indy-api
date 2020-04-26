@@ -15,6 +15,12 @@
   },
   "scripts": {
     "knex": "knex",
+    "build:test": "docker-compose build test",
+    "build:web": "docker-compose build web",
+    "docker:lint": "docker-compose run test npm run lint",
+    "docker:start": "docker-compose up -d web",
+    "docker:test": "docker-compose run test npm test",
+    "docker:test:ci": "docker-compose up --build test_base",
     "start": "node server",
     "test": "NODE_ENV=test; lab -a @hapi/code -L -t 100 -I 'core,__core-js_shared__,regeneratorRuntime,CSS' -L",
     "lint": "eslint ."
@@ -47,10 +53,14 @@
   },
   "devDependencies": {
     "@hapi/code": "8.x.x",
-    "eslint": "6.x.x",
     "@hapi/eslint-config-hapi": "13.x.x",
     "@hapi/eslint-plugin-hapi": "4.x.x",
+    "@hapi/lab": "22.x.x",
+    "babel-eslint": "10.x.x",
+    "eslint": "6.x.x",
+    "hpal": "2.x.x",
+    "hpal-debug": "1.x.x",
     "knex-migrate": "^1.7.1",
-    "@hapi/lab": "22.x.x"
+    "nodemon": "2.x.x"
   }
 }
