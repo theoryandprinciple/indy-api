@@ -1,8 +1,9 @@
 # create base image with all packages, proper entrypoint, and directories created
 FROM node:erbium-alpine AS base
 
-# install any packages we need from apt here
-RUN apk add --update dumb-init
+# install any packages we need from apk here
+# most of these packages are required by the secure-password dependency per https://github.com/sodium-friends/sodium-native/issues/126
+RUN apk add --update --no-cache dumb-init curl git python alpine-sdk bash autoconf libtool automake
 
 # set entrypoint to `dumb-init` as it handles being pid 1 and forwarding signals
 # so that you dont need to bake that logic into your node app
