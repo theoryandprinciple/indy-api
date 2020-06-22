@@ -10,7 +10,7 @@ A batteries included version of [hapi pal](https://github.com/hapipal/boilerplat
  - Swagger UI provides an easy interface to your API
  - Fully setup with a [lab](https://github.com/hapijs/lab) test suite and [eslint](https://github.com/eslint/eslint) configuration.
  - Up-to-date versions of all dependencies.
- - Supports hapi pal [Flavors](https://github.com/hapipal/boilerplate/#flavors) with the deployment, objection, and swagger flavors already included.
+ - Supports hapi pal [Flavors](https://github.com/hapipal/boilerplate/#flavors) with the deployment, objection, docker and swagger flavors already included.
 
 ## Getting Started
 ```bash
@@ -30,6 +30,12 @@ If you aren't using PostgreSQL, comment out or delete the `citext` column comman
 
 ```bash
 $ npm start
+```
+
+or if using Docker:
+
+```bash
+$ npm run docker:start
 ```
 
 Open [http://0.0.0.0:4000/documentation](http://0.0.0.0:4000/documentation) (assuming you used port 4000 in your .env file) in a web browser to start using your api.
@@ -58,3 +64,6 @@ CREATE EXTENSION IF NOT EXISTS citext
 ```
 
 Further reading: https://nandovieira.com/using-insensitive-case-columns-in-postgresql-with-citext
+
+### Running with Docker
+See [here](DOCKER.md) for more details about using Docker.
