@@ -41,10 +41,10 @@ CMD ["npm", "test"]
 # dev ready image, contains devDeps for test running and debugging
 FROM dependencies AS development
 
-# expose port 3000 from in the container to the outside world
+# expose port 4000 from in the container to the outside world
 # this is the default port defined in server/manifest.js, and
 # will need to be updated if you change the default port
-EXPOSE 3000
+EXPOSE 4000
 CMD ["npm", "start"]
 
 # release ready image, devDeps are pruned and tests removed for size control
