@@ -45,7 +45,7 @@ they change.
 Runs the `npm run lint` command in the `test` service.
 
 #### `npm run docker:start`
-Starts the `web` service in daemon mode, making it available at `localhost:3000`.
+Starts the `web` service in daemon mode, making it available at `localhost:4000`.
 
 #### `npm run docker:test`
 Runs the `npm test` command in the `test` service.
@@ -103,7 +103,7 @@ make any assumptions about what environment the output will be used in.
 ## Local Development
 If you are using the `development` flavor alongside this `docker` flavor, you can simply
 run `npm run docker:start` to build the release stage of the Dockerfile, and then start
-it as a `daemon` in Docker. You can then visit `localhost:3000` to hit your server.
+it as a `daemon` in Docker. You can then visit `localhost:4000` to hit your server.
 
 By default, the server is started using `nodemon` when you start it using
 `docker-compose`, which means every time you save a file the server will be restarted
@@ -122,7 +122,7 @@ the `server/.env` file, and then add a key in the `*_base` services in `docker-c
 that is simply `env_file: server/.env` at the same level in the yaml as the `environment` key.
 
 ## Changing the Port
-Currently the build process assumes that the port default of `3000` in
+Currently the build process assumes that the port default of `4000` in
 `server/manifest.js` is being used. `server/Dockerfile` has an `EXPOSE` command that
-references this port, and `docker-compose.yml` also contains a mapping of port `3000`
-in the container to port `3000` on the host machine.
+references this port, and `docker-compose.yml` also contains a mapping of port `4000`
+in the container to port `4000` on the host machine.

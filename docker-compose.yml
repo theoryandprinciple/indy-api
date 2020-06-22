@@ -13,10 +13,11 @@ services:
             "server/**/*",
             "server/index.js"
         ]
+        env_file: server/.env
         environment:
             - NODE_ENV=development
         ports:
-            - 3000:3000
+            - 4000:4000
     web:
         # hack for docker-compose v3 dropping `extends` support
         << : *web_base
@@ -31,6 +32,7 @@ services:
             context: .
             dockerfile: server/Dockerfile
             target: test
+        env_file: server/.env-test
     test:
         # hack for docker-compose v3 dropping `extends` support
         << : *test_base
