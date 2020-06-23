@@ -1,4 +1,4 @@
-# User pal
+# Theory and Principle Hapi Boilerplate
 
 A batteries included version of [hapi pal](https://github.com/hapipal/boilerplate/)
 
@@ -14,7 +14,7 @@ A batteries included version of [hapi pal](https://github.com/hapipal/boilerplat
 
 ## Getting Started
 ```bash
-$ git clone --depth=1 --origin=user-pal git@github.com:mattboutet/user-pal.git my-project
+$ git clone --depth=1 --origin=tp-boiler git@github.com:theoryandprinciple/TP-Hapi-Boiler.git my-project
 $ cd my-project
 $ git checkout --orphan master # New branch without history
 $ npm install
@@ -45,7 +45,7 @@ When you're ready to point this at your own Github repo and start committing:
 ```bash
 $ git remote add origin git@github.com:my-username/my-project.git
 $ npm init # Rename, reversion, describe your plugin
-$ git commit -am "Building on top of the user pal boilerplate"
+$ git commit -am "Building on top of the T&P boilerplate"
 ```
 
 
