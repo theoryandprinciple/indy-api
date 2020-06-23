@@ -41,7 +41,7 @@ services:
         ports:
             - 4000:4000
         # depends_on:
-        #     - db # change to either mysql_db or postresql_db depending on which one is being used
+        #     - db # change to either mysql_db or postgresql_db depending on which one is being used
     web:
         # hack for docker-compose v3 dropping `extends` support
         << : *web_base
@@ -58,7 +58,7 @@ services:
             target: test
         env_file: server/.env-test
         # depends_on:
-        #     - db # change to either mysql_db or postresql_db depending on which one is being used
+        #     - db # change to either mysql_db or postgresql_db depending on which one is being used
     test:
         # hack for docker-compose v3 dropping `extends` support
         << : *test_base
