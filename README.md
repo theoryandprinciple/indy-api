@@ -67,3 +67,15 @@ Further reading: https://nandovieira.com/using-insensitive-case-columns-in-postg
 
 ### Running with Docker
 See [here](DOCKER.md) for more details about using Docker.
+
+#### Database
+To use a Docker containerized Database with your application there are two flavors available
+in the `docker-compose.yml` file.  To use a PostgreSQL Database uncomment the "postgresql_db" service.  To use a MySQL Database uncomment the "mysql_db" service in the `docker-compose.yml` file.  Modify
+the settings as needed.  And finally, uncomment the `depends_on` section in `web_base` and `test_base`
+and rename `db` to either `mysql_db` or `postgresql_db` depending on which one is being used.
+
+To bootstrap the Database with an sql dump when it's created you can place a `.sql` or `.sql.gz` file
+in the `./data` directory (or modify the `volumes` mapping to a different local directory).
+
+See [here](https://hub.docker.com/_/postgres) for more details on customizing a PostgreSQL Docker
+Container or [here](https://hub.docker.com/_/mysql) for MySQL Docker Container customization.
