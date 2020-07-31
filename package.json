@@ -17,6 +17,7 @@
     "knex": "knex",
     "build:test": "docker-compose build test",
     "build:web": "docker-compose build web",
+    "build:web:no-cache": "docker-compose build --no-cache web",
     "docker:lint": "docker-compose run test npm run lint",
     "docker:start": "docker-compose up -d web",
     "docker:test": "docker-compose run test npm test",

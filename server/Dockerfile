@@ -16,12 +16,16 @@ WORKDIR /app
 # and dependencies installed, devDeps and test directory included
 FROM base AS dependencies
 
+# copy over the wait-for script that is used in docker-compose
+# to wait for dependencies to be up and ready before starting up the web app
+COPY wait-for ./
+
 COPY package*.json ./
 RUN npm set progress=false \
     && npm config set depth 0 \
     && npm i
 
-COPY .eslintrc.json .
+COPY .eslintrc.json ./
 COPY ./server ./server
 COPY ./test ./test
 COPY ./lib ./lib
