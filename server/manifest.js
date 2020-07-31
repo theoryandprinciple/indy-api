@@ -11,7 +11,7 @@ module.exports = new Confidence.Store({
         port: {
             $env: 'PORT',
             $coerce: 'number',
-            $default: 4000,
+            $default: 4000
         },
         // $lab:coverage:on$
         routes: {
