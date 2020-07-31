@@ -86,4 +86,5 @@ When you're ready to point this at your own Github repo and start committing:
 $ git remote add origin git@github.com:my-username/my-project.git
 $ npm init # Rename, reversion, describe your plugin
 $ git commit -am "Building on top of the T&P boilerplate"
+$ git push -u origin master:master
 ```
