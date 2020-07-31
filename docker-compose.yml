@@ -1,17 +1,17 @@
 version: '3.4'
 services:
     # uncomment DB services as needed
-    # postgresql_db:
-    #     image: postgres
-    #     restart: always
-    #     ports:
-    #         - "5432:5432"
-    #     environment:
-    #         POSTGRES_PASSWORD: password
-    #         POSTGRES_DB: db
-    #     volumes:
-    #         - ./data:/docker-entrypoint-initdb.d
-    # mysql_db:
+    db: # PostgreSQL Database
+        image: postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: db
+        volumes:
+            - ./data:/docker-entrypoint-initdb.d
+    # db: # MySQL Database
     #     image: mysql:5.7
     #     command: mysqld --user=root
     #     restart: always
@@ -27,21 +27,14 @@ services:
             context: .
             dockerfile: server/Dockerfile
             target: development
-        command: [
-            "./node_modules/.bin/nodemon",
-            "--watch",
-            "lib/**/*",
-            "--watch",
-            "server/**/*",
-            "server/index.js"
-        ]
+        command: sh -c './wait-for db:5432 -- ./node_modules/.bin/nodemon --watch lib/**/* --watch server/**/* server/index.js' # update db port as needed
         env_file: server/.env
         environment:
             - NODE_ENV=development
         ports:
             - 4000:4000
-        # depends_on:
-        #     - db # change to either mysql_db or postgresql_db depending on which one is being used
+        depends_on:
+            - db
     web:
         # hack for docker-compose v3 dropping `extends` support
         << : *web_base
@@ -56,9 +49,10 @@ services:
             context: .
             dockerfile: server/Dockerfile
             target: test
+        command: sh -c './wait-for db:5432' # update db port as needed
         env_file: server/.env-test
-        # depends_on:
-        #     - db # change to either mysql_db or postgresql_db depending on which one is being used
+        depends_on:
+            - db
     test:
         # hack for docker-compose v3 dropping `extends` support
         << : *test_base

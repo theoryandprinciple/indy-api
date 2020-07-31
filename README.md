@@ -30,9 +30,12 @@ See [here](DOCKER.md) for more details about using Docker.
 
 #### Database Setup
 To use a Docker containerized Database with your application there are two flavors available
-in the `docker-compose.yml` file.  To use a PostgreSQL Database uncomment the "postgresql_db" service.  To use a MySQL Database uncomment the "mysql_db" service in the `docker-compose.yml` file.  Modify
-the settings as needed.  And finally, uncomment the `depends_on` section in `web_base` and `test_base`
-and rename `db` to either `mysql_db` or `postgresql_db` depending on which one is being used.
+in the `docker-compose.yml` file.  By default the app is set up to use a **PostgreSQL Database**.
+You will need to modify the connection details for the instance you wish to create.
+
+To use a **MySQL Database** instead, uncomment the db service notated as "MySQL Database" in the `docker-compose.yml` file and comment the db service notated as "PostreSQL Database".  Modify
+the connection details as needed.  And finally, update in `web_base` and `test_base`
+the `command` property to `wait-for` the correct port for the database (i.e. `./wait-for db:3306`).
 
 To bootstrap the Database with an sql dump when it's created you can place a `.sql` or `.sql.gz` file
 in the `./data` directory.  Any number of files can be added here and will be run in alphanumeric order.
