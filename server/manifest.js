@@ -3,6 +3,20 @@
 const Confidence = require('confidence');
 const Toys = require('toys');
 
+// $lab:coverage:off$
+// Pull .env into process.env only if we're not in a Docker container
+if (!process.env.IS_DOCKER) {
+    const Dotenv = require('dotenv');
+
+    if (process.env.NODE_ENV === 'test') {
+        Dotenv.config({ path: `${__dirname}/.env-test` });
+    }
+    else {
+        Dotenv.config({ path: `${__dirname}/.env` });
+    }
+}
+// $lab:coverage:on$
+
 // Glue manifest as a confidence store
 module.exports = new Confidence.Store({
     server: {
@@ -16,7 +30,7 @@ module.exports = new Confidence.Store({
         // $lab:coverage:on$
         routes: {
             cors: {
-                $filter: 'NODE_ENV',
+                $filter: { $env: 'NODE_ENV' },
                 development: true,
                 test: true,
                 staging: true,
@@ -24,7 +38,7 @@ module.exports = new Confidence.Store({
             }
         },
         debug: {
-            $filter: 'NODE_ENV',
+            $filter: { $env: 'NODE_ENV' },
             development: {
                 log: ['error', 'implementation', 'internal'],
                 request: ['error', 'implementation', 'internal']
@@ -49,7 +63,7 @@ module.exports = new Confidence.Store({
             {
                 plugin: 'schwifty',
                 options: {
-                    $filter: 'NODE_ENV',
+                    $filter: { $env: 'NODE_ENV' },
                     $default: {},
                     $base: {
                         migrateOnStart: true,
