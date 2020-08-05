@@ -26,6 +26,7 @@ RUN npm set progress=false \
     && npm i
 
 COPY .eslintrc.json ./
+COPY knexfile.js ./
 COPY ./server ./server
 COPY ./test ./test
 COPY ./lib ./lib
