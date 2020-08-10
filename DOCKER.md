@@ -126,3 +126,6 @@ Currently the build process assumes that the port default of `4000` in
 `server/manifest.js` is being used. `server/Dockerfile` has an `EXPOSE` command that
 references this port, and `docker-compose.yml` also contains a mapping of port `4000`
 in the container to port `4000` on the host machine.
+
+## Running knex Migrations
+You will need to run any knex migrations from the web container's shell.  This is because the `DB_HOST` in `.env` is set as the host on the docker network in order to allow the web container to connect to the db container.  Outside of the containers that host does not exist.  So running knex outside the container network will prevent it from being able to connect.
