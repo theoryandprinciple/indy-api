@@ -8,7 +8,6 @@ services:
             - "5432:5432"
         environment:
             POSTGRES_PASSWORD: password
-            #POSTGRES_DB: boiler
         env_file: server/.env
         volumes:
             - ./data:/docker-entrypoint-initdb.d
@@ -35,6 +34,8 @@ services:
         environment:
             - NODE_ENV=development
             - IS_DOCKER=true
+            - DOCKER_DB_HOST=db
+
         ports:
             - 4000:4000
         depends_on:
