@@ -5,7 +5,7 @@ const KnexMigrate = require('knex-migrate');
 const Lab = require('@hapi/lab');
 const SecurePassword = require('secure-password');
 const Server = require('../server');
-const Uuid = require('uuid');
+const { v4: Uuid } = require('uuid');
 
 const Package = require('../package.json');
 
@@ -228,6 +228,35 @@ describe('Deployment', () => {
         expect(result.length).to.equal(7);
     });
 
+    it('Checks Auth Status with good token', async () => {
+
+        const options = {
+            method: 'GET',
+            url: '/users/authenticated',
+            headers: {
+                authorization: jwt
+            }
+        };
+
+        const response = await server.inject(options);
+
+        expect(response.statusCode).to.equal(200);
+    });
+
+    it('Checks Auth Status with bad token', async () => {
+
+        const options = {
+            method: 'GET',
+            url: '/users/authenticated',
+            headers: {
+                authorization: 'foobar'
+            }
+        };
+
+        const response = await server.inject(options);
+
+        expect(response.statusCode).to.equal(401);
+    });
     it('Fetches logged in user', async () => {
 
         const options = {

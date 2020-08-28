@@ -30,7 +30,7 @@ services:
             target: development
         command: sh -c './wait-for db:5432 -- ./node_modules/.bin/nodemon --watch lib --watch server server/index.js' # update db port as needed
         restart: unless-stopped
-        env_file: server/.env
+        env_file: server/.env-docker
         environment:
             - NODE_ENV=development
         ports:
