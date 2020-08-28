@@ -8,7 +8,8 @@ services:
             - "5432:5432"
         environment:
             POSTGRES_PASSWORD: password
-            POSTGRES_DB: your_database
+            #POSTGRES_DB: boiler
+        env_file: server/.env
         volumes:
             - ./data:/docker-entrypoint-initdb.d
             - ./.tmp/db:/var/lib/postgresql/data
@@ -30,9 +31,10 @@ services:
             target: development
         command: sh -c './wait-for db:5432 -- ./node_modules/.bin/nodemon --watch lib --watch server server/index.js' # update db port as needed
         restart: unless-stopped
-        env_file: server/.env-docker
+        env_file: server/.env
         environment:
             - NODE_ENV=development
+            - IS_DOCKER=true
         ports:
             - 4000:4000
         depends_on:
