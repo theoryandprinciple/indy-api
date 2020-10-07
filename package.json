@@ -1,13 +1,12 @@
 {
-  "name": "user-pal",
+  "name": "indy",
   "version": "1.0.0",
   "description": "hapi pal + user boilerplate",
-  "author": "Matt Boutet <mattboutet@gmail.com>",
-  "license": "ISC",
+  "author": "Matt Boutet <matt@theoryandprinciple.com>",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattboutet/user-pal"
+    "url": "https://github.com/theoryandprinciple/indy-api"
   },
   "directories": {
     "lib": "lib",

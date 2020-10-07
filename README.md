@@ -1,4 +1,4 @@
-# Theory and Principle Hapi Boilerplate
+# Indy API
 
 A batteries included version of [hapi pal](https://github.com/hapipal/boilerplate/)
 
