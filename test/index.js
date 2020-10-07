@@ -216,7 +216,7 @@ describe('Deployment', () => {
             method: 'GET',
             url: '/users',
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
@@ -234,7 +234,7 @@ describe('Deployment', () => {
             method: 'GET',
             url: '/users/authenticated',
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
@@ -249,7 +249,7 @@ describe('Deployment', () => {
             method: 'GET',
             url: '/users/authenticated',
             headers: {
-                authorization: 'foobar'
+                authorization: 'Bearer foobar'
             }
         };
 
@@ -263,7 +263,7 @@ describe('Deployment', () => {
             method: 'GET',
             url: '/user',
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
@@ -281,7 +281,7 @@ describe('Deployment', () => {
             method: 'GET',
             url: '/users/3',
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
@@ -303,7 +303,7 @@ describe('Deployment', () => {
                 newPassword: 'newPassword'
             },
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
@@ -330,8 +330,10 @@ describe('Deployment', () => {
             }
         };
         const loginResponse = await server.inject(loginOptions);
+
         const { token } = loginResponse.result;
         jwt2 = token;
+
         expect(loginResponse.statusCode).to.equal(200);
         expect(jwt2).to.be.a.string();
     });
@@ -346,7 +348,7 @@ describe('Deployment', () => {
                 newPassword: 'password'
             },
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
@@ -364,7 +366,7 @@ describe('Deployment', () => {
                 newPassword: 'password'
             },
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
@@ -489,7 +491,7 @@ describe('Deployment', () => {
             method: 'DELETE',
             url: '/users/5',
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
         const requestResponse = await server.inject(requestOptions);
@@ -502,7 +504,7 @@ describe('Deployment', () => {
             method: 'DELETE',
             url: '/users/5',
             headers: {
-                authorization: jwtAdmin
+                authorization: `Bearer ${jwtAdmin}`
             }
         };
         const requestResponse = await server.inject(requestOptions);
@@ -515,11 +517,12 @@ describe('Deployment', () => {
             method: 'POST',
             url: '/logout',
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt}`
             }
         };
 
         const response = await server.inject(options);
+
         expect(response.statusCode).to.equal(200);
 
         //ensure that 2nd session is still valid
@@ -527,7 +530,7 @@ describe('Deployment', () => {
             method: 'GET',
             url: '/user',
             headers: {
-                authorization: jwt2
+                authorization: `Bearer ${jwt2}`
             }
         };
 
@@ -544,7 +547,7 @@ describe('Deployment', () => {
             method: 'POST',
             url: '/logout-all',
             headers: {
-                authorization: jwt2
+                authorization: `Bearer ${jwt2}`
             }
         };
 
@@ -558,7 +561,7 @@ describe('Deployment', () => {
             method: 'GET',
             url: '/user',
             headers: {
-                authorization: jwt
+                authorization: `Bearer ${jwt2}`
             }
         };
 
