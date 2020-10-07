@@ -17,7 +17,15 @@ module.exports = {
                 options: {
                     info: {
                         version: Package.version
-                    }
+                    },
+                    securityDefinitions: {
+                        Bearer: {
+                            type: 'apiKey',
+                            name: 'Authorization',
+                            in: 'header'
+                        }
+                    },
+                    security: [{ Bearer: [] }]
                 }
             }
         ]);
