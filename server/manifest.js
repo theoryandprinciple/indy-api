@@ -51,7 +51,8 @@ module.exports = new Confidence.Store({
                 plugin: '../lib', // Main plugin
                 options: {
                     jwtKey: process.env.JWT_SECRET,
-                    siteUrl: process.env.SITE_URL
+                    siteUrl: process.env.SITE_URL,
+                    s3Bucket: process.env.AWS_S3_BUCKET
                 },
                 routes: {
                     prefix: process.env.API_PREFIX
