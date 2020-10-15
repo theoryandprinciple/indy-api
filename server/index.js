@@ -25,6 +25,7 @@ exports.deployment = async (start) => {
             console.log(request.info.remoteAddress + ': ' + request.method.toUpperCase() + ' ' + request.path + ' --> ' + request.response.statusCode);
         });
     }
+
     return server;
 
 };
