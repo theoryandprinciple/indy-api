@@ -19,6 +19,12 @@ exports.deployment = async (start) => {
 
     console.log(`Server started at ${server.info.uri}`);
 
+    if (process.env.LOG_ALL === 'true') {
+        server.events.on('response', (request) => {
+
+            console.log(request.info.remoteAddress + ': ' + request.method.toUpperCase() + ' ' + request.path + ' --> ' + request.response.statusCode);
+        });
+    }
     return server;
 
 };
