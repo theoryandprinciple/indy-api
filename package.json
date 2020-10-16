@@ -45,6 +45,7 @@
     "joi": "17.x.x",
     "jsonwebtoken": "8.x.x",
     "knex": "0.21.x",
+    "lob": "^6.1.0",
     "moment": "^2.29.1",
     "objection": "2.x.x",
     "pdf-lib": "^1.11.1",
