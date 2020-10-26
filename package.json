@@ -56,7 +56,6 @@
     "schmervice": "^1.6.0",
     "schwifty": "5.x.x",
     "secure-password": "4.x.x",
-    "sendemail": "^4.0.1",
     "tandy": "2.x.x",
     "toys": "2.x.x"
   },
