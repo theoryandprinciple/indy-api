@@ -1,33 +1,35 @@
 <p>
-    {{{tenant.firstName}}} {{{tenant.lastName}}}<br />
-    {{{tenant.address}}}<br />
+    {{tenant.firstName}} {{tenant.lastName}}<br />
+    {{tenant.address}}<br />
     {{#if tenant.address2}}
-        {{{tenant.address2}}}<br />
+        {{tenant.address2}}<br />
     {{/if}}
-    {{{tenant.city}}}, {{{tenant.state}}} {{tenant.zip}}
+    {{tenant.city}}, {{tenant.state}} {{tenant.zip}}
 </p>
 <p>
     {{#if landlord.company}}
-        {{{landlord.company}}}<br />
+        {{landlord.company}}<br />
     {{/if}}
-    {{{landlord.name}}}<br />
+    {{landlord.name}}<br />
     {{#if landlord.address}}
-        {{{landlord.address}}}<br />
+        {{landlord.address}}<br />
     {{/if}}
     {{#if landlord.address2}}
-        {{{landlord.address2}}}<br />
+        {{landlord.address2}}<br />
     {{/if}}
     {{#if landlord.city}}
-        {{{landlord.city}}}, {{{landlord.state}}} {{landlord.zip}}
+        {{landlord.city}}, {{landlord.state}} {{landlord.zip}}
     {{/if}}
 <p>{{date}}</p>
 <br>
-<p>Dear {{{landlord.name}}}:<br />
+<p>Dear {{landlord.name}}:<br />
 I am writing you to express my right to not be evicted through December 31, 2020 because I am unable to pay my rent due to the COVID-19 pandemic. I have this right under the Centers for Disease Control and Prevention's (&quot;CDC&quot;) Order effective September 4, 2020<sup>1</sup>. The CDC issued this Order as an emergency action authorized by Section 361 of the Public Health Act and 42 CFR 70.2 to prevent the spread of COVID-19 throughout the United States, including Indiana.</p>
 <p>The CDC Order states that &quot;a landlord, owner of residential property, or other person with a legal right to pursue eviction or possessory action, shall not evict any covered person from any residential property in any jurisdiction to which this Order applies.&quot; I am a &quot;covered person&quot; pursuant to this Order and request that you or your agent stop any action to remove or cause the removal of myself or my family from the leased property. This Order and its prohibitions apply to any stage of the eviction process, including but not limited to: you sending a notice to vacate, making an initial court filing, or pursuing execution of a post-judgment possessory action.</p>
 <p>Please note that pursuant to 18 U.S.C. 3559, 3571; 42 U.SC. 271; and 42 CFR 70.18, a person violating this Order may be subject to a fine of up to $250,000, a year and jail, or both depending on the circumstances. The U.S. Department of Justice may initiate court proceedings as appropriate seeking imposition of these criminal penalties. For further information you may contact the CDC directly at 404-639-7000 or <a href="mailto:cdcregulations@cdc.gov">cdcregulations@cdc.gov</a>.</p>
 <br>
 <p>Regards,<br />
-{{{tenant.firstName}}} {{tenant.lastName}}</p>
+{{tenant.firstName}} {{tenant.lastName}}</p>
 <p> _______________________</p>
 <p><sup>1</sup> Center for Disease Control and Prevention's Order dated September 1, 2020. See: <a href="https://www.cdc.gov/coronavirus/2019-ncov/covid-eviction-declaration.html">https://www.cdc.gov/coronavirus/2019-ncov/covid-eviction-declaration.html</a>; see also <a href="https://www.federalregister.gov/documents/2020/09/04/2020-19654/temporary-halt-in-residential-evictions-to-prevent-the-further-spread-of-covid-19">https://www.federalregister.gov/documents/2020/09/04/2020-19654/temporary-halt-in-residential-evictions-to-prevent-the-further-spread-of-covid-19</a></p>
+
+<p>*Disclaimer – this letter was generated from <a href="https://indyrenterhelp.org">IndyRenterHelp.org</a> and does not indicate an attorney-client relationship between the Neighborhood Christian Legal Clinic and the letter drafter. Please contact the tenant who sent you the letter directly with any questions or concerns you may have.</p>
