@@ -21,12 +21,12 @@
                             <td>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Bold', sans-serif; font-size: 17px; font-weight: bold; margin-bottom: 5px;">{{date}}</div>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px; margin-top: 5px;">
-                                    {{tenant.firstName}} {{tenant.lastName}}<br />
-                                    {{tenant.address}}<br />
+                                    {{{tenant.firstName}}} {{tenant.lastName}}}<br />
+                                    {{{tenant.address}}}<br />
                                     {{#if tenant.address2}}
-                                        {{tenant.address2}}<br />
+                                        {{{tenant.address2}}}<br />
                                     {{/if}}
-                                    {{tenant.city}}, {{tenant.state}} {{tenant.zip}}
+                                    {{{tenant.city}}}, {{{tenant.state}}} {{tenant.zip}}
                                 </div>
                             </td>
                             <td style="width: 60px"/>
@@ -38,7 +38,7 @@
                             <td style="width: 60px"/>
                             <td>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px; margin-top: 5px;">
-                                    Dear {{landlord.name}}:<br />
+                                    Dear {{{landlord.name}}}:<br />
                                     I am writing you to express my right to not be evicted through December 31, 2020 because I am unable to pay my rent due to the COVID-19 pandemic. I have this right under the Centers for Disease Control and Prevention's (&quot;CDC&quot;) Order effective September 4, 2020<sup>1</sup>. The CDC issued this Order as an emergency action authorized by Section 361 of the Public Health Act and 42 CFR 70.2 to prevent the spread of COVID-19 throughout the United States, including Indiana.</p>
                                 </div>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px; margin-top: 5px;">
@@ -49,7 +49,7 @@
                                 </div>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px; margin-top: 5px;">
                                     Regards,<br />
-                                    {{tenant.firstName}} {{tenant.lastName}}
+                                    {{{tenant.firstName}}} {{{tenant.lastName}}}
                                 </div>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px; margin-top: 5px;">
                                      _______________________
