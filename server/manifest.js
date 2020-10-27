@@ -53,8 +53,8 @@ module.exports = new Confidence.Store({
                     jwtKey: process.env.JWT_SECRET,
                     siteUrl: process.env.SITE_URL,
                     s3Bucket: process.env.AWS_S3_BUCKET,
-                    emailSender: process.env.SENDER_EMAIL_ADDRESS
-
+                    emailSender: process.env.SENDER_EMAIL_ADDRESS,
+                    reportingEmail: process.env.REPORTING_ADDRESS
                 },
                 routes: {
                     prefix: process.env.API_PREFIX
