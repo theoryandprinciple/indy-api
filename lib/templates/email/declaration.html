@@ -19,14 +19,40 @@
                         <tr>
                             <td style="width: 60px" />
                             <td>
-                                <div style="color: #001424; font-family: 'Kumbh Sans Bold', sans-serif; font-size: 17px; font-weight: bold; margin-bottom: 5px;">{{date}}</div>
-                                <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px; margin-top: 5px;">
+                                <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px;">
                                     {{{tenant.firstName}}} {{tenant.lastName}}}<br />
                                     {{{tenant.address}}}<br />
                                     {{#if tenant.address2}}
                                         {{{tenant.address2}}}<br />
                                     {{/if}}
                                     {{{tenant.city}}}, {{{tenant.state}}} {{tenant.zip}}
+                                </div>
+                            </td>
+                            <td style="width: 60px"/>
+                        </tr>
+                        <!-- section break -->
+                        <tr><td style="height: 30px" /></tr>
+                        <!-- end section break -->
+                        <tr>
+                            <td style="width: 60px" />
+                            <td>
+                                <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px;">
+                                    {{#if landlord.company}}
+                                        {{{landlord.company}}}<br />
+                                    {{/if}}
+                                    {{{landlord.name}}}<br />
+                                    {{#if landlord.address}}
+                                        {{{landlord.address}}}<br />
+                                    {{/if}}
+                                    {{#if landlord.address2}}
+                                        {{{landlord.address2}}}<br />
+                                    {{/if}}
+                                    {{#if landlord.city}}
+                                        {{{landlord.city}}}, {{{landlord.state}}} {{landlord.zip}}
+                                    {{/if}}
+                                </div>
+                                <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px;">
+                                    {{formattedDate}}
                                 </div>
                             </td>
                             <td style="width: 60px"/>
