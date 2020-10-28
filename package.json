@@ -1,6 +1,6 @@
 {
   "name": "indy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Indianapolis CDC Renter relief app",
   "author": "Matt Boutet <matt@theoryandprinciple.com>",
   "main": "lib/index.js",

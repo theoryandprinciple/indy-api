@@ -1,4 +1,4 @@
-<p>{{{date}}}</p>
+<p>{{{formattedDate}}}</p>
 <p>
     {{{tenant.firstName}}} {{{tenant.lastName}}}<br />
     {{{tenant.address}}}<br />
@@ -8,10 +8,10 @@
     {{{tenant.city}}}, {{{tenant.state}}} {{{tenant.zip}}}
 </p>
 <p>
+    {{{landlord.name}}}<br />
     {{#if landlord.company}}
         {{{landlord.company}}}<br />
     {{/if}}
-    {{{landlord.name}}}<br />
     {{#if landlord.address}}
         {{{landlord.address}}}<br />
     {{/if}}
