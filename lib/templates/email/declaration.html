@@ -20,6 +20,9 @@
                             <td style="width: 60px" />
                             <td>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px;">
+                                    {{date}}
+                                </div>
+                                <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px;">
                                     {{{tenant.firstName}}} {{{tenant.lastName}}}<br />
                                     {{{tenant.address}}}<br />
                                     {{#if tenant.address2}}
@@ -37,10 +40,10 @@
                             <td style="width: 60px" />
                             <td>
                                 <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px;">
+                                    {{{landlord.name}}}<br />
                                     {{#if landlord.company}}
                                         {{{landlord.company}}}<br />
                                     {{/if}}
-                                    {{{landlord.name}}}<br />
                                     {{#if landlord.address}}
                                         {{{landlord.address}}}<br />
                                     {{/if}}
@@ -50,9 +53,6 @@
                                     {{#if landlord.city}}
                                         {{{landlord.city}}}, {{{landlord.state}}} {{landlord.zip}}
                                     {{/if}}
-                                </div>
-                                <div style="color: #001424; font-family: 'Kumbh Sans Regular', sans-serif; font-size: 17px; line-height: 20px;">
-                                    {{date}}
                                 </div>
                             </td>
                             <td style="width: 60px"/>
