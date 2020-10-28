@@ -1,7 +1,7 @@
 {
   "name": "indy",
-  "version": "1.0.0",
-  "description": "hapi pal + user boilerplate",
+  "version": "1.0.1",
+  "description": "Indianapolis CDC Renter relief app",
   "author": "Matt Boutet <matt@theoryandprinciple.com>",
   "main": "lib/index.js",
   "repository": {
