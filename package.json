@@ -23,7 +23,8 @@
     "docker:test:ci": "docker-compose up --build test_base",
     "start": "node server",
     "test": "NODE_ENV=test; lab -a @hapi/code -L -t 100 -I 'core,__core-js_shared__,regeneratorRuntime,CSS' -L",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "demographic-report": "./node_modules/.bin/hpal run indy:dumpCsv"
   },
   "dependencies": {
     "@hapi/boom": "9.x.x",
