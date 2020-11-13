@@ -1,32 +1,42 @@
-# Indy API
+# Indy Renter Help
 
-A batteries included version of [hapi pal](https://github.com/hapipal/boilerplate/)
+This is the API for [Indy Renter Help](https://indyrenterhelp.org/) which is a web app that will help struggling renters obatin protection they are entitled to under the current CDC Federal Eviction Moratorium.
 
 **Features**
  - Supports hapi v19+
  - Provides conventions for building plugins by mapping the entire hapi plugin API onto files and folders, using [haute-couture](https://github.com/hapipal/haute-couture/).
  - Integrated with [Objection ORM](https://github.com/Vincit/objection.js/) via [Schwifty](https://github.com/hapipal/schwifty/)
  - Configured to use PostgreSQL (NODE_ENV=development) (though can work with any SQL dialect supported by [knex](http://knexjs.org/))
- - Swagger UI provides an easy interface to your API
+ - Swagger UI provides an easy interface to your API at `/documentation`
  - Fully setup with a [lab](https://github.com/hapijs/lab) test suite and [eslint](https://github.com/eslint/eslint) configuration.
  - Up-to-date versions of all dependencies.
- - Supports hapi pal [Flavors](https://github.com/hapipal/boilerplate/#flavors) with the deployment, objection, docker and swagger flavors already included.
+
+## What you'll need
+ - AWS account.  This project uses AWS S3 for storage of the completed forms and AWS Simple Email Service for transactional emails.  We also host our version of this project on AWS EC2, but it will run fine on most linux distributions.
+ - Front end - this is the API, but it does not provide a friendly user interface.  You'll want to look at [https://github.com/theoryandprinciple/indy-frontend/] (https://github.com/theoryandprinciple/indy-frontend/)
+ - (Optional) Lob account.  This app has the ability to interface with Lob to allow users to mail a letter to their landlord/property manager.  In our case, this functionality is limited to users in a pre-defined set of zip codes - because Lob charges per-letter, it could get expensive quickly if left ungated.
 
 ## Getting Started
 ```bash
-$ git clone --depth=1 --origin=tp-boiler git@github.com:theoryandprinciple/TP-Hapi-Boiler.git my-project
+$ git clone --depth=1 --origin=indy-original git@github.com:theoryandprinciple/indy-api.git my-project
 $ cd my-project
 $ git checkout --orphan master # New branch without history
 $ npm install
 $ cp server/.env-keep server/.env
 $ cp server/.env server/.env-test
 ```
-
-Open `.env` and `.env-test` in your editor of choice and fill in the variables there (presumes you've created empty databases in the SQL dialect of your choice).  `.env-test` should point at a different database from `.env`, as all data will be lost each time `npm run test` is executed.
+ - If using Lob, update the list of eligible Zip Codes in `lib/services/declaration.js`
+ - Use `npm link` to link in to the front end of the app, which will run as a plugin.
+ - Open `.env` and `.env-test` in your editor of choice and fill in the variables there (presumes you've created empty databases in the SQL dialect of your choice).  `.env-test` should point at a different database from `.env`, as all data will be lost each time `npm run test` is executed.
 
 
 ### Using Docker
 See [here](DOCKER.md) for more details about using Docker.
+
+### Database note
+The app is currently only using a database to collect information about the demographics of
+users.  If that functionality isn't needed, it would be straightforward to remove the database
+functionality altogether.
 
 #### Database Setup
 To use a Docker containerized Database with your application there are two flavors available
@@ -85,6 +95,6 @@ When you're ready to point this at your own Github repo and start committing:
 ```bash
 $ git remote add origin git@github.com:my-username/my-project.git
 $ npm init # Rename, reversion, describe your plugin
-$ git commit -am "Building on top of the T&P boilerplate"
+$ git commit -am "Building on top of the Indy Renter Help App"
 $ git push -u origin master:master
 ```
