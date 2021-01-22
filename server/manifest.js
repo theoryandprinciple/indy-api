@@ -61,7 +61,7 @@ module.exports = new Confidence.Store({
                 }
             },
             {
-                plugin: './plugins/swagger'
+                plugin: process.env.NODE_ENV === 'development' ? './plugins/swagger' : Toys.noop
             },
             {
                 plugin: 'schwifty',
