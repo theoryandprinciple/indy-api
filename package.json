@@ -4,6 +4,7 @@
   "description": "hapi pal + user boilerplate",
   "author": "Matt Boutet <matt@theoryandprinciple.com>",
   "main": "lib/index.js",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/theoryandprinciple/indy-api"
