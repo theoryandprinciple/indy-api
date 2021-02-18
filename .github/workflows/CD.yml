@@ -1,0 +1,39 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.DEV_SERVER_USERNAME }}
+          key: ${{ secrets.DEV_SERVER_KEY }}
+          script: |
+            cd /app/indy-api
+            git checkout master
+            git pull
+            npm ci
+            npm link indy-frontend
+            pm2 restart indy --update-env
+
+      - name: Slack Notify
+        uses: 8398a7/action-slack@v3
+        with:
+          username: 'GitHub Action'
+          icon_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,took
+          mention: 'Erin,Matt'
+          if_mention: 'failure,cancelled'
+          channel: '#indy'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        if: always()
