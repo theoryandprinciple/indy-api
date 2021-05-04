@@ -1,6 +1,6 @@
 {
   "name": "indy",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Indy Renter Help",
   "author": "Matt Boutet <matt@theoryandprinciple.com>",
   "main": "lib/index.js",
